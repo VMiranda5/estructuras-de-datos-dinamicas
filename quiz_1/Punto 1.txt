@@ -1,0 +1,34 @@
+
+//Este punto fue creado en JAVA
+
+public class Binario {
+    public static void main(String[] args) {
+        System.out.println("Caso1");
+        int longitudDelBinarioCaso1 = 4;
+        Combinacion_Binaria(longitudDelBinarioCaso1, "", "", 0);
+
+        System.out.println("Caso2");
+        int longitudDelBinarioCaso2 = 5;
+        Combinacion_Binaria(longitudDelBinarioCaso2, "", "", 0);
+    }
+    static void Combinacion_Binaria(int longitud, String LadoIzquierda, String LadoDerecho, int diferenciaPosiciones) {
+        if (longitud == 0) {
+            if (diferenciaPosiciones == 0)
+                System.out.print(LadoIzquierda + LadoDerecho + " ");
+            return;
+        }
+        if (longitud == 1) {
+            if (diferenciaPosiciones == 0) {
+                System.out.print(LadoIzquierda + "0" + LadoDerecho + " ");
+                System.out.print(LadoIzquierda + "1" + LadoDerecho + " ");
+            }
+            return;
+        }
+        if ((2 * Math.abs(diferenciaPosiciones) <= longitud)) {
+            Combinacion_Binaria(longitud - 2, LadoIzquierda + "0", LadoDerecho + "0", diferenciaPosiciones);
+            Combinacion_Binaria(longitud - 2, LadoIzquierda + "0", LadoDerecho + "1", diferenciaPosiciones - 1);
+            Combinacion_Binaria(longitud - 2, LadoIzquierda + "1", LadoDerecho + "0", diferenciaPosiciones + 1);
+            Combinacion_Binaria(longitud - 2, LadoIzquierda + "1", LadoDerecho + "1", diferenciaPosiciones);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+//Java 
+
+public class Combinaciones {
+    public static void main(String[] args) {
+        int[] elementos = {1, 2, 3, 4};
+        int r = 2;
+        int[] combinacionActual = new int[r];
+
+        generarCombinaciones(elementos, r, 0, combinacionActual, 0);
+    }
+
+    public static void generarCombinaciones(int[] elementos, int r, int indice, int[] combinacion, int i) {
+        if (indice == r) {
+            imprimirCombinacion(combinacion);
+            return;
+        }
+
+        if (i >= elementos.length) {
+            return;
+        }
+
+        combinacion[indice] = elementos[i];
+        generarCombinaciones(elementos, r, indice + 1, combinacion, i + 1);
+        generarCombinaciones(elementos, r, indice, combinacion, i + 1);
+    }
+
+    public static void imprimirCombinacion(int[] combinacion) {
+        for (int elemento : combinacion) {
+            System.out.print(elemento + " ");
+        }
+        System.out.println();
+    }
+}

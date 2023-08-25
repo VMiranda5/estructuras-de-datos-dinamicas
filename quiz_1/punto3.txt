@@ -1,0 +1,41 @@
+//este punto se realizó en C
+//Dada una matriz de tamaño N x c, cree un algoritmo recursivo para es recorrer esta matriz
+#include <stdio.h>
+
+
+void recorrer_matriz(int r, int  c, int i,int j,int a[][c]){
+
+    if (i==(r-1) && j==(c-1)){
+        printf("%d\n",a[i][j]);
+    }
+    else{
+        if (i<=r-1){
+            if(j<=c-1){
+                printf("%d, ", a[i][j]);
+                recorrer_matriz(r,c, i,j+1,a);
+            }
+            else{
+                printf("%d, ", a[i+1][0]);
+                recorrer_matriz(r,c,i+1,1,a);
+            }
+        }      
+    }
+}
+
+
+int main(){
+    int matrix[][3]={
+        {1, 2, 3},
+        {4, 5,6},
+        {7, 8, 9},
+        {10,11,12}
+    };
+    int r=4;
+    int c=3;
+    int i = 0;
+    int j=0;
+
+
+    recorrer_matriz(r, c, i, j, matrix);
+    return 0;
+}
