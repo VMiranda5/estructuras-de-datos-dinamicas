@@ -1,0 +1,45 @@
+Nodo agregarNodo(Nodo c, Nodo i, Nodo a)
+	//caso base: la lista está vacía
+	if(c==null && a==null)
+		return i
+	end if
+	
+	//se ha recorrido hasta el final de la lista
+	if(c==null && a!=null)
+		a.proximo = i
+		return a
+	end if
+	
+	//el nodo a ingresar es null
+	if(i==null && a ==null)
+		return Error //no se puede agregar null
+	end if
+//------------------en este if hice un cambio con lo realizado en la clase porque considero que no estaba bien implementado------------------//
+	
+	//el valor a ingresar es menor que el valor de la cabeza de la lista
+	if(i.valor<c.valor && a==null)
+		i.proximo = c
+		return i
+	end if
+
+//---------------------------------------------------------------//
+
+	//el valor a ingresar es igual al de la cabeza
+	if(c.valor==i.valor)
+		return c
+	end if
+//----------------------solucion propuesta-------------------------------//
+
+	//el valor debe de agregarse dentro de una lista de más de 2 nodos
+	if(i.valor<c.valor && a!=null)
+		a.proximo = i
+		i.proximo = c
+		return a
+//-----------------------------------------------------------------------//
+		
+
+	//para recorrer la lista
+	Nodo anterior = c
+	agregarNodo(c.proximo, i, anterior)
+
+	
