@@ -40,6 +40,21 @@ public class NodoEnteros {
         System.out.println(valor);
     }
 
+    int contarNodos() {
+        int nodos = 1; // Initialize the count to 1 for the current node
+
+        if (hijoIzquierdo != null) {
+            nodos += hijoIzquierdo.contarNodos();
+        }
+
+        if (hijoDerecho != null) {
+            nodos += hijoDerecho.contarNodos();
+        }
+
+        return nodos;
+    }
+
+
     int contarHojas() {
         if(this.esHoja()){
             return 1;
@@ -59,19 +74,8 @@ public class NodoEnteros {
             }
         }
     }
-/*
-    int contar2hojas(int cuenta){
-        if (hijoIzquierdo != null) {
-            hijoIzquierdo.contar2hojas(cuenta);
-        }
-        if (hijoDerecho != null) {
-            hijoDerecho.contar2hojas(cuenta);
-        }
-        if(this.esHoja()){
-        }
-        ;
-    }
-*/
+
+
     int contarNiveles(int niveles_izquierdos, int niveles_derechos) {
         if (this.esHoja()){
             return 0;
@@ -85,4 +89,10 @@ public class NodoEnteros {
 
         return Math.max(niveles_izquierdos,niveles_derechos)+1;
     }
+
+    int calcularAncho(){
+        return 0;
+    }
+
 }
+

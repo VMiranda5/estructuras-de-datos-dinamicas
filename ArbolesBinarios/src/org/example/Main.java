@@ -2,7 +2,7 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        /**
+        /*
          *
          *
          *             4
@@ -16,6 +16,7 @@ public class Main {
          */
 
         NodoEnteros padre = new NodoEnteros();  //1
+        //System.out.println(padre.valor);
         padre.valor = 4;
 
 
@@ -31,9 +32,9 @@ public class Main {
         NodoEnteros hijoIzquierdoDelHijoIzquierdo = new NodoEnteros(); //4
         hijoIzquierdoDelHijoIzquierdo.valor = 0;
 
-        NodoEnteros hijoDerechoDelHijoIzquierdo = new NodoEnteros(); //5
-        hijoDerechoDelHijoIzquierdo.valor = 2;
-        hijoIzquierdo.hijoDerecho = hijoDerechoDelHijoIzquierdo;
+        //NodoEnteros hijoDerechoDelHijoIzquierdo = new NodoEnteros(); //5
+        //hijoDerechoDelHijoIzquierdo.valor = 2;
+        //hijoIzquierdo.hijoDerecho = hijoDerechoDelHijoIzquierdo;
 
         hijoIzquierdo.hijoIzquierdo = hijoIzquierdoDelHijoIzquierdo;
 
@@ -46,18 +47,23 @@ public class Main {
         hijoDerechoDelHijoDerecho.hijoDerecho = hijoDerechoDelHijoDerechoDelHijoDerecho;
 
 
-        /*
-        System.out.println(padre.esHoja());  //Falso
-        System.out.println(hijoIzquierdo.esHoja()); //Falso
-        System.out.println(hijoDerecho.esHoja()); //Verdadero
-        System.out.println(hijoIzquierdoDelHijoIzquierdo.esHoja()); //Verdadero
-        */
+    /*
+        //System.out.println(padre.esHoja());  //Falso
+        //System.out.println(hijoIzquierdo.esHoja()); //Falso
+        //System.out.println(hijoDerecho.esHoja()); //Verdadero
+        //System.out.println(hijoIzquierdoDelHijoIzquierdo.esHoja()); //Verdadero
+
+*/
+        //int nodos = padre.contarNodos();
+        //System.out.println(nodos);
         //padre.recorrerInOrder();
         //padre.recorrerPostOrder();
 
-        //int niveles = padre.contarNiveles(0,0);
-        //System.out.println(niveles);
-        int hojas = padre.contarHojas();
-        System.out.println(hojas);
+        int niveles = padre.contarNiveles(0,0);
+        System.out.println(niveles);
+        //int hojas = padre.contarHojas();
+        //System.out.println(hojas);
+
     }
+
 }
